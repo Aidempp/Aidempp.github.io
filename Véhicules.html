@@ -69,7 +69,7 @@
 
     .cis-box {
         width: 80%;
-        margin: 20px auto;
+        margin: 20px auto 40px auto;
         background-color: rgba(0,0,0,0.6);
         padding: 20px;
         border-radius: 10px;
@@ -79,6 +79,7 @@
     .cis-box h3 {
         color: #ffcc00;
         text-shadow: 1px 1px 2px black;
+        margin-top: 0;
     }
 
     .statut-dispo {
@@ -110,7 +111,10 @@
 <!-- SDIS 13 -->
 <h2>SDIS 13</h2>
 <table border="1">
-    <tr><th>CIS</th><th>Voir</th></tr>
+    <tr>
+        <th>CIS</th>
+        <th>Voir</th>
+    </tr>
     <tr><td>CIS Alpilles-Durance</td><td><button onclick="showCIS('alpilles')">Voir</button></td></tr>
     <tr><td>CIS Chateaurenard</td><td><button onclick="showCIS('chateaurenard')">Voir</button></td></tr>
     <tr><td>CIS Eyguières</td><td><button onclick="showCIS('eyguieres')">Voir</button></td></tr>
@@ -124,7 +128,10 @@
 <!-- SDIS 67 -->
 <h2>SDIS 67</h2>
 <table border="1">
-    <tr><th>CIS</th><th>Voir</th></tr>
+    <tr>
+        <th>CIS</th>
+        <th>Voir</th>
+    </tr>
     <tr><td>CIS Bischwiller</td><td><button onclick="showCIS('bischwiller')">Voir</button></td></tr>
     <tr><td>CIS Molsheim</td><td><button onclick="showCIS('molsheim')">Voir</button></td></tr>
     <tr><td>CIS Petersbach</td><td><button onclick="showCIS('petersbach')">Voir</button></td></tr>
@@ -138,15 +145,18 @@
 <!-- ENIS -->
 <h2>ENIS</h2>
 <table border="1">
-    <tr><th>ENIS</th><th>Voir</th></tr>
-    <tr><td>ENIS</td><td><button onclick="showCIS('enis')">Voir</button></td></tr>
+    <tr>
+        <th>ENIS</th>
+        <th>Voir</th>
+    </tr>
+    <tr><td>ENIS</td><td><button onclick="showCIS('enis1')">Voir</button></td></tr>
 </table>
 
-<!-- Zone dynamique -->
+<!-- Zone d'affichage dynamique -->
 <div id="cisInfo" class="cis-box"></div>
 
 <script>
-// Noms des CIS
+// Noms propres des centres
 const nomsCIS = {
     alpilles: "CIS Alpilles-Durance (SDIS 13)",
     chateaurenard: "CIS Chateaurenard (SDIS 13)",
@@ -166,38 +176,23 @@ const nomsCIS = {
     moder: "CIS Val de Moder (SDIS 67)",
     wasselonne: "CIS Wasselonne (SDIS 67)",
 
-    enis: "ENIS"
+    enis1: "ENIS 1",
+    enis2: "ENIS 2",
+    enis3: "ENIS 3"
 };
 
-// Base de données véhicules (à compléter)
-const vehiculesParCIS = {
-    // Exemples SDIS 67
-    strasbourg: [
-        { id: 1898, nom: "VAR 1 - Strasbourg Ouest", statut: "Disponible" }
-    ],
-    molsheim: [
-        { id: 1899, nom: "VLCDG 1 - Molsheim", statut: "Disponible" }
-    ],
-    petersbach: [
-        { id: 1900, nom: "VSR 1 - Petersbach", statut: "Disponible matériel" }
-    ],
+// Contenu du JSON (chargé au démarrage)
+let vehicules = {};
 
-    // Exemples SDIS 13
-    mallemort: [
-        { id: 1904, nom: "VLHR 1 - Mallemort", statut: "Disponible matériel" }
-    ],
-    salon: [
-        { id: 1902, nom: "VLHR 1 - Salon-de-Provence", statut: "Disponible" }
-    ],
-
-    // ENIS vide pour l'instant
-    enis: []
-};
+fetch("vehicules.json")
+    .then(response => response.json())
+    .then(data => vehicules = data)
+    .catch(err => console.error("Erreur chargement JSON :", err));
 
 function showCIS(cis) {
     const box = document.getElementById("cisInfo");
-    const nom = nomsCIS[cis] || "Centre inconnu";
-    const liste = vehiculesParCIS[cis] || [];
+    const nomCentre = nomsCIS[cis] || "Centre inconnu";
+    const liste = vehicules[cis] || [];
 
     box.style.display = "block";
 
@@ -231,7 +226,7 @@ function showCIS(cis) {
     }
 
     box.innerHTML = `
-        <h3>${nom}</h3>
+        <h3>${nomCentre}</h3>
 
         <table border="1" style="width:100%; margin-top:20px;">
             <tr style="background-color:#d32f2f; color:white;">
