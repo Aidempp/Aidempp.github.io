@@ -18,7 +18,7 @@
         text-shadow: 2px 2px 4px black;
     }
 
-    input, select {
+    input {
         padding: 10px;
         margin: 5px;
         width: 250px;
@@ -76,8 +76,8 @@
 
 <div>
     <input type="number" id="id" placeholder="ID du véhicule">
-    <input type="text" id="nom" placeholder="Nom du véhicule">
-    <input type="text" id="statut" placeholder="Statut">
+    <input type="text" id="numero" placeholder="Numéro (ex : VSAV 1)">
+    <input type="text" id="cis" placeholder="CIS d'affectation">
     <button onclick="ajouterVehicule()">Enregistrer</button>
 </div>
 
@@ -87,8 +87,8 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Nom</th>
-            <th>Statut</th>
+            <th>Numéro</th>
+            <th>CIS</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -110,8 +110,8 @@ function afficher() {
         tbody.innerHTML += `
             <tr>
                 <td>${v.id}</td>
-                <td>${v.nom}</td>
-                <td>${v.statut}</td>
+                <td>${v.numero}</td>
+                <td>${v.cis}</td>
                 <td>
                     <button class="btn-modif" onclick="charger(${index})">Modifier</button>
                     <button class="btn-suppr" onclick="supprimer(${index})">Supprimer</button>
@@ -123,21 +123,21 @@ function afficher() {
 
 function ajouterVehicule() {
     const id = document.getElementById("id").value;
-    const nom = document.getElementById("nom").value;
-    const statut = document.getElementById("statut").value;
+    const numero = document.getElementById("numero").value;
+    const cis = document.getElementById("cis").value;
 
-    if (!id || !nom) {
-        alert("ID et nom obligatoires");
+    if (!id || !numero || !cis) {
+        alert("Tous les champs sont obligatoires");
         return;
     }
 
     const existant = vehicules.find(v => v.id == id);
 
     if (existant) {
-        existant.nom = nom;
-        existant.statut = statut;
+        existant.numero = numero;
+        existant.cis = cis;
     } else {
-        vehicules.push({ id, nom, statut });
+        vehicules.push({ id, numero, cis });
     }
 
     sauvegarder();
@@ -147,8 +147,8 @@ function ajouterVehicule() {
 function charger(index) {
     const v = vehicules[index];
     document.getElementById("id").value = v.id;
-    document.getElementById("nom").value = v.nom;
-    document.getElementById("statut").value = v.statut;
+    document.getElementById("numero").value = v.numero;
+    document.getElementById("cis").value = v.cis;
 }
 
 function supprimer(index) {
