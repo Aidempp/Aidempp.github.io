@@ -79,10 +79,6 @@
             margin-top: 5px;
         }
 
-        label {
-            font-weight: bold;
-        }
-
         textarea {
             width: 100%;
             height: 250px;
@@ -351,15 +347,15 @@ function genererAvis() {
     const cp = document.getElementById("cp").value;
     const humeur = document.getElementById("humeur").value;
 
-    const presence = document.getElementById("presence").value;
-    const communication = document.getElementById("communication").value;
-    const comportement = document.getElementById("comportement").value;
-    const investissement = document.getElementById("investissement").value;
+    const presence = document.getElementById("presence").value.toLowerCase();
+    const communication = document.getElementById("communication").value.toLowerCase();
+    const comportement = document.getElementById("comportement").value.toLowerCase();
+    const investissement = document.getElementById("investissement").value.toLowerCase();
 
     const planning = document.getElementById("planning").value;
-    const epi = document.getElementById("epi").value;
+    const epi = document.getElementById("epi").value.toLowerCase();
     const fma = document.getElementById("fma").value;
-    const bagage = document.getElementById("bagage").value;
+    const bagage = document.getElementById("bagage").value.toLowerCase();
     const rappel = document.getElementById("rappel").value;
 
     const gradeSign = document.getElementById("grade-sign").value;
@@ -369,22 +365,45 @@ function genererAvis() {
 
     const date = new Date().toLocaleDateString("fr-FR");
 
+    // Gestion du texte rappel/avertissement
+    let texteRappel = "";
+    if (rappel === "Aucun") {
+        texteRappel = "Pas de rappel ni avertissement ce mois-ci.";
+    } else {
+        texteRappel = `Un ${rappel.toLowerCase()} a été notifié ce mois-ci.`;
+    }
+
+    // Gestion du planning
+    let textePlanning = "";
+    if (planning === "Dans les temps") {
+        textePlanning = "en temps et en heure";
+    } else {
+        textePlanning = "avec du retard";
+    }
+
+    // Gestion FMA
+    let texteFMA = "";
+    if (fma === "À jour") {
+        texteFMA = "en temps et en heure";
+    } else {
+        texteFMA = "avec du retard";
+    }
+
     const texte = 
 `[Avis ${mois}]
 
-Le ${grade} ${prenom} a une ${presence.toLowerCase()} au sein du CIS. 
-Les statistiques sont les suivantes : DPA ${dpa}, Condition Physique ${cp}, Humeur ${humeur}. 
-La communication est ${communication.toLowerCase()} avec le personnel et la hiérarchie. 
-Le comportement est ${comportement.toLowerCase()} et l’investissement est ${investissement.toLowerCase()}.
+Le ${grade} ${prenom} a une ${presence} au sein du CIS. 
+Les statistiques sont excellentes avec une dépense de PA's à ${dpa}, une Condition Physique à ${cp} et son Humeur à ${humeur}. 
+La communication est ${communication} que ce soit avec le personnel du CIS ou la hiérarchie. 
+Comportement ${comportement} au sein du CIS et un investissement ${investissement} pour sa carrière ainsi qu'au sein du CIS. 
+Les plannings sont débloqués ${textePlanning}. 
+L'entretien ainsi que la demande des EPI sont ${epi}. 
+Le bagage formatif est ${bagage}. 
+Les FMA sont réalisées ${texteFMA}. 
+${texteRappel} 
+Excellent mois, continue ainsi.
 
-Concernant les obligations : 
-- Planning : ${planning}
-- EPI : ${epi}
-- FMA : ${fma}
-- Bagage formatif : ${bagage}
-- Rappels / Avertissements : ${rappel}
-
-- Le ${date} - ${gradeSign}, ${fonction}, ${caserne}`;
+- Le ${date} - ${gradeSign}, ${fonction}, ${caserne}, SDIS 13`;
 
     document.getElementById("avisFinal").value = texte;
 }
