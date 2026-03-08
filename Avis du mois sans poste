@@ -1,11 +1,53 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Avis Mensuel</title>
-</head>
-<body>
-    <h1>Avis Mensuel</h1>
-    <p>Page en construction.</p>
-</body>
-</html>
+<div class="avis-box">
+    <h2>🧾 Avis Mensuel — Septembre 2023</h2>
+
+    <h3>👤 Identité</h3>
+    <div class="avis-section">
+        <p><strong>Grade :</strong> Adjudant-Chef</p>
+        <p><strong>Pseudo :</strong> jerem007</p>
+        <p><strong>Poste :</strong> Oui — Poste à responsabilité</p>
+    </div>
+
+    <h3>📊 Statistiques</h3>
+    <div class="avis-section">
+        <p><strong>DPA :</strong> 100%</p>
+        <p><strong>CP :</strong> 91%</p>
+        <p><strong>Humeur :</strong> 98%</p>
+        <p><strong>Ensemble du mois :</strong> Très bon mois</p>
+    </div>
+
+    <h3>🧠 Comportement & Présence</h3>
+    <div class="avis-section">
+        <p>Présence quotidienne</p>
+        <p>Très bonne communication avec la hiérarchie</p>
+        <p>Très bonne communication avec les joueurs</p>
+        <p>Très bon comportement au sein du CIS</p>
+        <p>Excellent investissement pour sa carrière et le CIS</p>
+    </div>
+
+    <h3>📌 Poste à responsabilité</h3>
+    <div class="avis-section">
+        <p>Très bon suivi des subordonnés</p>
+        <p>Promotions gérées dans les temps</p>
+        <p>CRSS traités correctement et dans les délais</p>
+        <p>Très bonne gestion générale du poste</p>
+        <p>Heures formation et VM placées dans les temps</p>
+        <p>Déblocage des plannings toujours effectué dans les délais</p>
+        <p>Demande de renouvellement des EPI correctement effectuée</p>
+        <p>Très bon entretien de ses EPI</p>
+        <p>FMA à jour</p>
+        <p>Bagage formatif excellent</p>
+    </div>
+
+    <h3>✔️ Discipline</h3>
+    <div class="avis-section">
+        <p>Aucune sanction</p>
+        <p>Aucune absence</p>
+    </div>
+
+    <h3>🏁 Conclusion</h3>
+    <div class="avis-section">
+        <p><strong>Très bon mois, il faut continuer ainsi.</strong></p>
+        <p><em>Le 22/09/2023 — Les Chefs de Centre du CIS Salon-de-Provence</em></p>
+    </div>
+</div>
