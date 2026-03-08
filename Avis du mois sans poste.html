@@ -151,15 +151,15 @@
         <div class="avis-section">
 
             <label for="dpa"><strong>DPA :</strong></label><br>
-            <input type="text" id="Dépense de PA" placeholder="Dépense de PA">
+            <input type="text" id="dpa" placeholder="Dépense de PA">
             <br><br>
 
             <label for="cp"><strong>CP :</strong></label><br>
-            <input type="text" id="Condition physique" placeholder="Condition physique">
+            <input type="text" id="cp" placeholder="Condition physique">
             <br><br>
 
             <label for="humeur"><strong>Humeur :</strong></label><br>
-            <input type="text" id="Humeur" placeholder="Humeur">
+            <input type="text" id="humeur" placeholder="Humeur">
         </div>
 
         <!-- 4 • Comportement & Présence -->
@@ -246,6 +246,62 @@
                 <option>Avertissement niveau 2</option>
                 <option>Avertissement niveau 3</option>
                 <option>Avertissement niveau 4</option>
+            </select>
+
+        </div>
+
+        <!-- 6 • Signature -->
+        <h3>6 • Signature</h3>
+        <div class="avis-section">
+
+            <label for="grade-sign"><strong>Ton grade :</strong></label><br>
+            <select id="grade-sign">
+                <option>Sergent-chef</option>
+                <option>Adjudant</option>
+                <option>Adjudant-chef</option>
+                <option>Lieutenant</option>
+                <option>Capitaine</option>
+                <option>Commandant</option>
+                <option>Lieutenant-colonel</option>
+                <option>Colonel</option>
+            </select>
+            <br><br>
+
+            <label for="pseudo"><strong>Ton pseudo :</strong></label><br>
+            <input type="text" id="pseudo" placeholder="Ton pseudo">
+            <br><br>
+
+            <label for="fonction"><strong>Ta fonction :</strong></label><br>
+            <select id="fonction">
+                <option>Chef de section</option>
+                <option>Chef de centre</option>
+                <option>Chef de centre adjoint</option>
+            </select>
+            <br><br>
+
+            <label for="caserne"><strong>Caserne :</strong></label><br>
+            <select id="caserne">
+
+                <!-- SDIS 13 -->
+                <option>CIS Alpilles-Durance</option>
+                <option>CIS Chateaurenard</option>
+                <option>CIS Eyguières</option>
+                <option>CIS Istres</option>
+                <option>CIS Lambesc</option>
+                <option>CIS Mallemort</option>
+                <option>CIS Salon-de-Provence</option>
+                <option>CIS Vallée des Baux</option>
+
+                <!-- SDIS 67 -->
+                <option>CIS Bischwiller</option>
+                <option>CIS Molsheim</option>
+                <option>CIS Petersbach</option>
+                <option>CIS Saverne</option>
+                <option>CIS Strasbourg Ouest</option>
+                <option>CIS Truchtersheim</option>
+                <option>CIS Val de Moder</option>
+                <option>CIS Wasselonne</option>
+
             </select>
 
         </div>
