@@ -2,17 +2,35 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenue sur le site d'aide mpp</title>
+    <title>Générateur d'avis</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background: #f5f5f5;
             margin: 0;
             padding: 0;
+        }
+
+        nav {
+            background-color: #d32f2f;
+            padding: 15px 0;
             text-align: center;
         }
 
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         h1 {
+            text-align: center;
             margin-top: 40px;
             font-size: 32px;
             color: #333;
@@ -32,6 +50,7 @@
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         .card h2 {
@@ -44,22 +63,9 @@
             margin-bottom: 20px;
         }
 
-        .btn {
-            display: inline-block;
-            background: #d32f2f;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            background: #b71c1c;
-        }
-
         footer {
             margin-top: 60px;
+            text-align: center;
             color: #777;
             font-size: 14px;
         }
@@ -67,12 +73,19 @@
 </head>
 <body>
 
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="mensuel.html">Avis Mensuel</a>
+        <a href="promotion.html">Promotion</a>
+        <a href="sanction.html">Sanction</a>
+    </nav>
+
     <h1>Générateur d'avis</h1>
 
     <div class="container">
         <div class="card">
             <h2>Avis Mensuel</h2>
-            <p>Générer un avis du mois.</p>
+            <p>Générer un avis mensuel complet en 1 minute.</p>
             <a class="btn" href="mensuel.html">Commencer</a>
         </div>
 
@@ -84,13 +97,13 @@
 
         <div class="card">
             <h2>Avis de Sanction</h2>
-            <p>Rédiger un avis de sanction.</p>
+            <p>Rédiger un avis de sanction en 3 minutes.</p>
             <a class="btn" href="sanction.html">Commencer</a>
         </div>
     </div>
 
     <footer>
-        • Par Alexandre
+        0 avis générés • Par Alexandre
     </footer>
 
 </body>
