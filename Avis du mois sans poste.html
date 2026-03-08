@@ -1,10 +1,11 @@
 <div class="avis-box">
     <h2>Créer un avis mensuel</h2>
 
+    <!-- 1 • Mois -->
     <h3>1 • Mois</h3>
     <div class="avis-section">
-        <label>Mois :</label>
-        <select>
+        <label for="mois"><strong>Mois :</strong></label><br>
+        <select id="mois">
             <option>Janvier 2026</option>
             <option>Février 2026</option>
             <option>Mars 2026</option>
@@ -20,10 +21,11 @@
         </select>
     </div>
 
+    <!-- 2 • Identité -->
     <h3>2 • Identité</h3>
     <div class="avis-section">
-        <label>Grade :</label>
-        <select>
+        <label for="grade"><strong>Grade :</strong></label><br>
+        <select id="grade">
             <option>Sapeur</option>
             <option>Caporal</option>
             <option>Caporal-Chef</option>
@@ -35,40 +37,79 @@
         </select>
         <br><br>
 
-        <label>Prénom :</label>
-        <input type="text" placeholder="Exemple">
+        <label for="prenom"><strong>Prénom :</strong></label><br>
+        <input type="text" id="prenom" placeholder="Exemple">
     </div>
 
+    <!-- 3 • Statistiques -->
     <h3>3 • Statistiques</h3>
     <div class="avis-section">
-        <label>DPA :</label>
-        <select>
-            <!-- 0 à 100% -->
-            <script>
-                for (let i = 0; i <= 100; i++) {
-                    document.write(`<option>${i}%</option>`);
-                }
-            </script>
+
+        <label for="dpa"><strong>DPA :</strong></label><br>
+        <select id="dpa">
+            <option>0%</option><option>10%</option><option>20%</option><option>30%</option><option>40%</option>
+            <option>50%</option><option>60%</option><option>70%</option><option>80%</option><option>90%</option>
+            <option selected>100%</option>
         </select>
         <br><br>
 
-        <label>CP :</label>
-        <select>
-            <script>
-                for (let i = 0; i <= 100; i++) {
-                    document.write(`<option>${i}%</option>`);
-                }
-            </script>
+        <label for="cp"><strong>CP :</strong></label><br>
+        <select id="cp">
+            <option>0%</option><option>10%</option><option>20%</option><option>30%</option><option>40%</option>
+            <option>50%</option><option>60%</option><option>70%</option><option>80%</option><option>90%</option>
+            <option selected>100%</option>
         </select>
         <br><br>
 
-        <label>Humeur :</label>
-        <select>
-            <script>
-                for (let i = 0; i <= 100; i++) {
-                    document.write(`<option>${i}%</option>`);
-                }
-            </script>
+        <label for="humeur"><strong>Humeur :</strong></label><br>
+        <select id="humeur">
+            <option>0%</option><option>10%</option><option>20%</option><option>30%</option><option>40%</option>
+            <option>50%</option><option>60%</option><option>70%</option><option>80%</option><option>90%</option>
+            <option selected>100%</option>
         </select>
+    </div>
+
+    <!-- 4 • Comportement & Présence -->
+    <h3>4 • Comportement & Présence</h3>
+    <div class="avis-section">
+
+        <label for="presence"><strong>Présence :</strong></label><br>
+        <select id="presence">
+            <option>Présence quotidienne</option>
+            <option>Présence régulière</option>
+            <option>Présence irrégulière</option>
+            <option>Présence insuffisante</option>
+        </select>
+        <br><br>
+
+        <label for="communication"><strong>Communication :</strong></label><br>
+        <select id="communication">
+            <option>Excellente</option>
+            <option>Très bonne</option>
+            <option>Bonne</option>
+            <option>Passable</option>
+            <option>Mauvaise</option>
+        </select>
+        <br><br>
+
+        <label for="comportement"><strong>Comportement :</strong></label><br>
+        <select id="comportement">
+            <option>Excellent</option>
+            <option>Très bon</option>
+            <option>Bon</option>
+            <option>Moyen</option>
+            <option>Mauvais</option>
+        </select>
+        <br><br>
+
+        <label for="investissement"><strong>Investissement :</strong></label><br>
+        <select id="investissement">
+            <option>Excellent</option>
+            <option>Très bon</option>
+            <option>Bon</option>
+            <option>Moyen</option>
+            <option>Mauvais</option>
+        </select>
+
     </div>
 </div>
