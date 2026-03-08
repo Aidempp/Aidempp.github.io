@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Avis Mensuel</title>
+    <title>Avis du mois</title>
 
     <style>
         body {
@@ -56,9 +56,18 @@
             margin-bottom: 20px;
         }
 
-        .avis-box p {
-            font-size: 18px;
-            line-height: 1.6;
+        .avis-box h3 {
+            margin-top: 25px;
+            color: #ff4444;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        .avis-section {
+            background-color: rgba(255,255,255,0.08);
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #ff4444;
         }
 
         footer {
@@ -90,29 +99,50 @@
         <a href="Véhicules.html">Véhicules</a>
     </nav>
 
-    <h1>Avis Mensuel</h1>
+    <h1>Avis du mois</h1>
 
     <div class="avis-box">
-        <h2>📘 Avis Mars 2026</h2>
+        <h2>Avis Mensuel – Septembre 2023</h2>
 
-        <p>
-        Le Sapeur Exemple a une présence quotidienne au sein du CIS.  
-        Les statistiques sont excellentes avec une dépense de PA’s à 100%,  
-        une Condition Physique à 100% et une Humeur à 100%.  
-        La communication est excellente, que ce soit avec le personnel du CIS  
-        ou la hiérarchie. Le comportement est exemplaire au sein du CIS  
-        et l’investissement est excellent pour sa carrière ainsi qu’au sein du centre.<br><br>
+        <h3>1 • Identité</h3>
+        <div class="avis-section">
+            <p><strong>Grade :</strong> Adjudant-Chef</p>
+            <p><strong>Prénom :</strong> Jérôme</p>
+        </div>
 
-        Les plannings sont débloqués en temps et en heure.  
-        L’entretien ainsi que la demande des EPI sont corrects.  
-        Le bagage formatif est excellent.  
-        Les FMA sont réalisées en temps et en heure.  
-        Aucun rappel ni avertissement ce mois‑ci.<br><br>
+        <h3>2 • Statistiques</h3>
+        <div class="avis-section">
+            <p><strong>DPA :</strong> 100%</p>
+            <p><strong>CP :</strong> 91%</p>
+            <p><strong>Humeur :</strong> 98%</p>
+            <p><strong>Ensemble du mois :</strong> Très bon mois</p>
+        </div>
 
-        <strong>Excellent mois, continue ainsi.</strong><br><br>
+        <h3>3 • Comportement & Présence</h3>
+        <div class="avis-section">
+            <p>Présence quotidienne</p>
+            <p>Très bonne communication avec la hiérarchie</p>
+            <p>Très bonne communication avec les joueurs</p>
+            <p>Très bon comportement au sein du CIS</p>
+            <p>Excellent investissement pour sa carrière et le CIS</p>
+        </div>
 
-        <em>- Le 08/03/2026 — Sergent‑Chef Exemple, Chef de Section, CIS Alpilles‑Durance, SDIS 13</em>
-        </p>
+        <h3>4 • Obligations</h3>
+        <div class="avis-section">
+            <p><strong>Planning débloqué :</strong> Oui, dans les temps</p>
+            <p><strong>EPI (entretien + demande) :</strong> Correct</p>
+            <p><strong>FMA :</strong> À jour</p>
+            <p><strong>Bagage formatif :</strong> Excellent</p>
+            <p><strong>Rappels / Avertissements :</strong> Aucun</p>
+        </div>
+
+        <h3>5 • Signature</h3>
+        <div class="avis-section">
+            <p><strong>Ton grade :</strong> Sergent-Chef</p>
+            <p><strong>Ton pseudo :</strong> Exemple</p>
+            <p><strong>Ta fonction :</strong> Chef de Section</p>
+            <p><strong>Caserne / Groupement :</strong> CIS Alpilles-Durance</p>
+        </div>
     </div>
 
     <footer>
