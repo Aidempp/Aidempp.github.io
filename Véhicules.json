@@ -1,0 +1,17 @@
+{
+    "strasbourg": [
+        { "id": 1898, "nom": "VAR 1 - Strasbourg Ouest", "statut": "Disponible" }
+    ],
+    "molsheim": [
+        { "id": 1899, "nom": "VLCDG 1 - Molsheim", "statut": "Disponible" }
+    ],
+    "petersbach": [
+        { "id": 1900, "nom": "VSR 1 - Petersbach", "statut": "Disponible matériel" }
+    ],
+    "mallemort": [
+        { "id": 1904, "nom": "VLHR 1 - Mallemort", "statut": "Disponible matériel" }
+    ],
+    "salon": [
+        { "id": 1902, "nom": "VLHR 1 - Salon-de-Provence", "statut": "Disponible" }
+    ]
+}
