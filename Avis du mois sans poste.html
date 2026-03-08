@@ -70,7 +70,6 @@
             border-left: 4px solid #ff4444;
         }
 
-        /* STYLE DES MENUS ET INPUTS */
         select, input[type="text"] {
             width: 250px;
             padding: 8px;
@@ -82,6 +81,36 @@
 
         label {
             font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 250px;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            resize: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-generate {
+            background-color: #ff4444;
+            color: white;
+        }
+
+        .btn-copy {
+            background-color: #ffcc00;
+            color: black;
+            margin-left: 10px;
         }
     </style>
 </head>
@@ -104,7 +133,7 @@
         <!-- 1 • Mois -->
         <h3>1 • Mois</h3>
         <div class="avis-section">
-            <label for="mois"><strong>Mois :</strong></label><br>
+            <label>Mois :</label><br>
             <select id="mois">
                 <option>Janvier 2026</option>
                 <option>Février 2026</option>
@@ -124,7 +153,7 @@
         <!-- 2 • Identité -->
         <h3>2 • Identité</h3>
         <div class="avis-section">
-            <label for="grade"><strong>Grade :</strong></label><br>
+            <label>Grade :</label><br>
             <select id="grade">
                 <option>Sapeur 2ème classe</option>
                 <option>Sapeur 1ère classe</option>
@@ -142,31 +171,29 @@
             </select>
             <br><br>
 
-            <label for="prenom"><strong>Prénom :</strong></label><br>
+            <label>Prénom :</label><br>
             <input type="text" id="prenom" placeholder="Pseudo">
         </div>
 
         <!-- 3 • Statistiques -->
         <h3>3 • Statistiques</h3>
         <div class="avis-section">
-
-            <label for="dpa"><strong>DPA :</strong></label><br>
+            <label>DPA :</label><br>
             <input type="text" id="dpa" placeholder="Dépense de PA">
             <br><br>
 
-            <label for="cp"><strong>CP :</strong></label><br>
+            <label>CP :</label><br>
             <input type="text" id="cp" placeholder="Condition physique">
             <br><br>
 
-            <label for="humeur"><strong>Humeur :</strong></label><br>
+            <label>Humeur :</label><br>
             <input type="text" id="humeur" placeholder="Humeur">
         </div>
 
         <!-- 4 • Comportement & Présence -->
         <h3>4 • Comportement & Présence</h3>
         <div class="avis-section">
-
-            <label for="presence"><strong>Présence :</strong></label><br>
+            <label>Présence :</label><br>
             <select id="presence">
                 <option>Présence quotidienne</option>
                 <option>Présence régulière</option>
@@ -175,7 +202,7 @@
             </select>
             <br><br>
 
-            <label for="communication"><strong>Communication :</strong></label><br>
+            <label>Communication :</label><br>
             <select id="communication">
                 <option>Excellente</option>
                 <option>Très bonne</option>
@@ -185,7 +212,7 @@
             </select>
             <br><br>
 
-            <label for="comportement"><strong>Comportement :</strong></label><br>
+            <label>Comportement :</label><br>
             <select id="comportement">
                 <option>Excellent</option>
                 <option>Très bon</option>
@@ -195,7 +222,7 @@
             </select>
             <br><br>
 
-            <label for="investissement"><strong>Investissement :</strong></label><br>
+            <label>Investissement :</label><br>
             <select id="investissement">
                 <option>Excellent</option>
                 <option>Très bon</option>
@@ -203,42 +230,40 @@
                 <option>Moyen</option>
                 <option>Mauvais</option>
             </select>
-
         </div>
 
         <!-- 5 • Obligations -->
         <h3>5 • Obligations</h3>
         <div class="avis-section">
-
-            <label for="planning"><strong>Planning débloqué :</strong></label><br>
+            <label>Planning débloqué :</label><br>
             <select id="planning">
                 <option>Dans les temps</option>
                 <option>En retard</option>
             </select>
             <br><br>
 
-            <label for="epi"><strong>EPI (entretien + demande) :</strong></label><br>
+            <label>EPI :</label><br>
             <select id="epi">
                 <option>Correct</option>
                 <option>Incorrect</option>
             </select>
             <br><br>
 
-            <label for="fma"><strong>FMA :</strong></label><br>
+            <label>FMA :</label><br>
             <select id="fma">
                 <option>À jour</option>
                 <option>Non à jour</option>
             </select>
             <br><br>
 
-            <label for="bagage"><strong>Bagage formatif :</strong></label><br>
+            <label>Bagage formatif :</label><br>
             <select id="bagage">
                 <option>Excellent</option>
                 <option>Insuffisant</option>
             </select>
             <br><br>
 
-            <label for="rappel"><strong>Rappels / Avertissements :</strong></label><br>
+            <label>Rappels / Avertissements :</label><br>
             <select id="rappel">
                 <option>Aucun</option>
                 <option>Rappel officiel</option>
@@ -247,14 +272,13 @@
                 <option>Avertissement niveau 3</option>
                 <option>Avertissement niveau 4</option>
             </select>
-
         </div>
 
         <!-- 6 • Signature -->
         <h3>6 • Signature</h3>
         <div class="avis-section">
 
-            <label for="grade-sign"><strong>Ton grade :</strong></label><br>
+            <label>Ton grade :</label><br>
             <select id="grade-sign">
                 <option>Sergent-chef</option>
                 <option>Adjudant</option>
@@ -267,11 +291,11 @@
             </select>
             <br><br>
 
-            <label for="pseudo"><strong>Ton pseudo :</strong></label><br>
+            <label>Ton pseudo :</label><br>
             <input type="text" id="pseudo" placeholder="Ton pseudo">
             <br><br>
 
-            <label for="fonction"><strong>Ta fonction :</strong></label><br>
+            <label>Ta fonction :</label><br>
             <select id="fonction">
                 <option>Chef de section</option>
                 <option>Chef de centre</option>
@@ -279,10 +303,8 @@
             </select>
             <br><br>
 
-            <label for="caserne"><strong>Caserne :</strong></label><br>
+            <label>Caserne :</label><br>
             <select id="caserne">
-
-                <!-- SDIS 13 -->
                 <option>CIS Alpilles-Durance</option>
                 <option>CIS Chateaurenard</option>
                 <option>CIS Eyguières</option>
@@ -292,7 +314,6 @@
                 <option>CIS Salon-de-Provence</option>
                 <option>CIS Vallée des Baux</option>
 
-                <!-- SDIS 67 -->
                 <option>CIS Bischwiller</option>
                 <option>CIS Molsheim</option>
                 <option>CIS Petersbach</option>
@@ -301,12 +322,80 @@
                 <option>CIS Truchtersheim</option>
                 <option>CIS Val de Moder</option>
                 <option>CIS Wasselonne</option>
-
             </select>
 
         </div>
 
+        <!-- 7 • Génération -->
+        <h3>7 • Générer l'avis</h3>
+        <div class="avis-section">
+            <button class="btn-generate" onclick="genererAvis()">Générer l'avis</button>
+            <button class="btn-copy" onclick="copierTexte()">Copier le texte</button>
+        </div>
+
+        <h3>Avis généré</h3>
+        <div class="avis-section">
+            <textarea id="avisFinal"></textarea>
+        </div>
+
     </div>
+
+<script>
+function genererAvis() {
+
+    const mois = document.getElementById("mois").value;
+    const grade = document.getElementById("grade").value;
+    const prenom = document.getElementById("prenom").value;
+
+    const dpa = document.getElementById("dpa").value;
+    const cp = document.getElementById("cp").value;
+    const humeur = document.getElementById("humeur").value;
+
+    const presence = document.getElementById("presence").value;
+    const communication = document.getElementById("communication").value;
+    const comportement = document.getElementById("comportement").value;
+    const investissement = document.getElementById("investissement").value;
+
+    const planning = document.getElementById("planning").value;
+    const epi = document.getElementById("epi").value;
+    const fma = document.getElementById("fma").value;
+    const bagage = document.getElementById("bagage").value;
+    const rappel = document.getElementById("rappel").value;
+
+    const gradeSign = document.getElementById("grade-sign").value;
+    const pseudo = document.getElementById("pseudo").value;
+    const fonction = document.getElementById("fonction").value;
+    const caserne = document.getElementById("caserne").value;
+
+    const date = new Date().toLocaleDateString("fr-FR");
+
+    const texte = 
+`[Avis ${mois}]
+
+Le ${grade} ${prenom} a une ${presence.toLowerCase()} au sein du CIS. 
+Les statistiques sont les suivantes : DPA ${dpa}, Condition Physique ${cp}, Humeur ${humeur}. 
+La communication est ${communication.toLowerCase()} avec le personnel et la hiérarchie. 
+Le comportement est ${comportement.toLowerCase()} et l’investissement est ${investissement.toLowerCase()}.
+
+Concernant les obligations : 
+- Planning : ${planning}
+- EPI : ${epi}
+- FMA : ${fma}
+- Bagage formatif : ${bagage}
+- Rappels / Avertissements : ${rappel}
+
+- Le ${date} - ${gradeSign}, ${fonction}, ${caserne}`;
+
+    document.getElementById("avisFinal").value = texte;
+}
+
+function copierTexte() {
+    const zone = document.getElementById("avisFinal");
+    zone.select();
+    document.execCommand("copy");
+    alert("Avis copié !");
+}
+</script>
 
 </body>
 </html>
