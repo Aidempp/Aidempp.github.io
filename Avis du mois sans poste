@@ -1,53 +1,124 @@
-<div class="avis-box">
-    <h2>🧾 Avis Mensuel — Septembre 2023</h2>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Avis Mensuel</title>
 
-    <h3>👤 Identité</h3>
-    <div class="avis-section">
-        <p><strong>Grade :</strong> Adjudant-Chef</p>
-        <p><strong>Pseudo :</strong> jerem007</p>
-        <p><strong>Poste :</strong> Oui — Poste à responsabilité</p>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('Fond pompier Aide MPP.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #d32f2f;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 36px;
+            color: white;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        .avis-box {
+            width: 70%;
+            margin: 40px auto;
+            background-color: rgba(0,0,0,0.65);
+            padding: 25px;
+            border-radius: 12px;
+            color: white;
+            box-shadow: 0 0 12px black;
+        }
+
+        .avis-box h2 {
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px black;
+            margin-bottom: 20px;
+        }
+
+        .avis-box p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #d32f2f;
+            padding: 12px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
+        }
+
+        footer p {
+            margin: 3px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="mensuel.html">Avis du mois</a>
+        <a href="promotion.html">Promotion</a>
+        <a href="sanction.html">Sanction</a>
+        <a href="Véhicules.html">Véhicules</a>
+    </nav>
+
+    <h1>Avis Mensuel</h1>
+
+    <div class="avis-box">
+        <h2>📘 Avis Mars 2026</h2>
+
+        <p>
+        Le Sapeur Exemple a une présence quotidienne au sein du CIS.  
+        Les statistiques sont excellentes avec une dépense de PA’s à 100%,  
+        une Condition Physique à 100% et une Humeur à 100%.  
+        La communication est excellente, que ce soit avec le personnel du CIS  
+        ou la hiérarchie. Le comportement est exemplaire au sein du CIS  
+        et l’investissement est excellent pour sa carrière ainsi qu’au sein du centre.<br><br>
+
+        Les plannings sont débloqués en temps et en heure.  
+        L’entretien ainsi que la demande des EPI sont corrects.  
+        Le bagage formatif est excellent.  
+        Les FMA sont réalisées en temps et en heure.  
+        Aucun rappel ni avertissement ce mois‑ci.<br><br>
+
+        <strong>Excellent mois, continue ainsi.</strong><br><br>
+
+        <em>- Le 08/03/2026 — Sergent‑Chef Exemple, Chef de Section, CIS Alpilles‑Durance, SDIS 13</em>
+        </p>
     </div>
 
-    <h3>📊 Statistiques</h3>
-    <div class="avis-section">
-        <p><strong>DPA :</strong> 100%</p>
-        <p><strong>CP :</strong> 91%</p>
-        <p><strong>Humeur :</strong> 98%</p>
-        <p><strong>Ensemble du mois :</strong> Très bon mois</p>
-    </div>
+    <footer>
+        <p>Créateur : alexdu44</p>
+        <p>Ce site n’a aucun lien avec monpompier.com</p>
+    </footer>
 
-    <h3>🧠 Comportement & Présence</h3>
-    <div class="avis-section">
-        <p>Présence quotidienne</p>
-        <p>Très bonne communication avec la hiérarchie</p>
-        <p>Très bonne communication avec les joueurs</p>
-        <p>Très bon comportement au sein du CIS</p>
-        <p>Excellent investissement pour sa carrière et le CIS</p>
-    </div>
-
-    <h3>📌 Poste à responsabilité</h3>
-    <div class="avis-section">
-        <p>Très bon suivi des subordonnés</p>
-        <p>Promotions gérées dans les temps</p>
-        <p>CRSS traités correctement et dans les délais</p>
-        <p>Très bonne gestion générale du poste</p>
-        <p>Heures formation et VM placées dans les temps</p>
-        <p>Déblocage des plannings toujours effectué dans les délais</p>
-        <p>Demande de renouvellement des EPI correctement effectuée</p>
-        <p>Très bon entretien de ses EPI</p>
-        <p>FMA à jour</p>
-        <p>Bagage formatif excellent</p>
-    </div>
-
-    <h3>✔️ Discipline</h3>
-    <div class="avis-section">
-        <p>Aucune sanction</p>
-        <p>Aucune absence</p>
-    </div>
-
-    <h3>🏁 Conclusion</h3>
-    <div class="avis-section">
-        <p><strong>Très bon mois, il faut continuer ainsi.</strong></p>
-        <p><em>Le 22/09/2023 — Les Chefs de Centre du CIS Salon-de-Provence</em></p>
-    </div>
-</div>
+</body>
+</html>
