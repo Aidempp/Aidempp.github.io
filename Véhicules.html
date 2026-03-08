@@ -2,244 +2,40 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Centres d'incendie et de secours</title>
+<title>Véhicules MPP – Mise à jour automatique</title>
 
 <style>
     body {
-        font-family: Arial, sans-serif;
-        background: url('Fond pompier Aide MPP.png') no-repeat center center fixed;
-        background-size: cover;
-        margin: 0;
-        padding: 0;
+        font-family: Arial;
+        background: #111;
         color: white;
-    }
-
-    h1, h2 {
-        text-align: center;
-        text-shadow: 2px 2px 4px black;
-    }
-
-    h1 {
-        margin-top: 40px;
-        font-size: 36px;
-    }
-
-    h2 {
-        margin-top: 50px;
-        font-size: 30px;
-        color: #ffcc00;
-    }
-
-    table {
-        width: 80%;
-        margin: 20px auto;
-        border-collapse: collapse;
-        background-color: rgba(0,0,0,0.6);
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    th {
-        background-color: #d32f2f;
-        padding: 15px;
-        font-size: 20px;
-        text-shadow: 1px 1px 2px black;
-    }
-
-    td {
-        padding: 15px;
-        text-align: center;
-    }
-
-    button {
-        padding: 10px 20px;
-        background-color: #ff4444;
-        border: none;
-        border-radius: 6px;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        font-weight: bold;
-        box-shadow: 0 0 6px black;
-    }
-
-    button:hover {
-        background-color: #ff2222;
-    }
-
-    .cis-box {
-        width: 80%;
-        margin: 20px auto 40px auto;
-        background-color: rgba(0,0,0,0.6);
         padding: 20px;
-        border-radius: 10px;
-        display: none;
     }
-
-    .cis-box h3 {
-        color: #ffcc00;
-        text-shadow: 1px 1px 2px black;
-        margin-top: 0;
+    .vehicule {
+        background: #222;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
     }
-
-    .statut-dispo {
-        color: #00e676;
+    .nom {
         font-weight: bold;
+        font-size: 18px;
     }
-
-    .statut-reforme {
-        color: #b0bec5;
-        font-weight: bold;
-    }
-
-    a.lien-flux {
-        color: #64b5f6;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    a.lien-flux:hover {
-        text-decoration: underline;
+    .statut {
+        color: #ccc;
     }
 </style>
-
 </head>
+
 <body>
 
-<h1>Liste des CIS par SDIS</h1>
+<h1>Liste des véhicules MPP (mise à jour automatique)</h1>
 
-<!-- SDIS 13 -->
-<h2>SDIS 13</h2>
-<table border="1">
-    <tr>
-        <th>CIS</th>
-        <th>Voir</th>
-    </tr>
-    <tr><td>CIS Alpilles-Durance</td><td><button onclick="showCIS('alpilles')">Voir</button></td></tr>
-    <tr><td>CIS Chateaurenard</td><td><button onclick="showCIS('chateaurenard')">Voir</button></td></tr>
-    <tr><td>CIS Eyguières</td><td><button onclick="showCIS('eyguieres')">Voir</button></td></tr>
-    <tr><td>CIS Istres</td><td><button onclick="showCIS('istres')">Voir</button></td></tr>
-    <tr><td>CIS Lambesc</td><td><button onclick="showCIS('lambesc')">Voir</button></td></tr>
-    <tr><td>CIS Mallemort</td><td><button onclick="showCIS('mallemort')">Voir</button></td></tr>
-    <tr><td>CIS Salon-de-Provence</td><td><button onclick="showCIS('salon')">Voir</button></td></tr>
-    <tr><td>CIS Vallée des Baux</td><td><button onclick="showCIS('baux')">Voir</button></td></tr>
-</table>
+<!-- ICI la liste va apparaître -->
+<div id="vehicules"></div>
 
-<!-- SDIS 67 -->
-<h2>SDIS 67</h2>
-<table border="1">
-    <tr>
-        <th>CIS</th>
-        <th>Voir</th>
-    </tr>
-    <tr><td>CIS Bischwiller</td><td><button onclick="showCIS('bischwiller')">Voir</button></td></tr>
-    <tr><td>CIS Molsheim</td><td><button onclick="showCIS('molsheim')">Voir</button></td></tr>
-    <tr><td>CIS Petersbach</td><td><button onclick="showCIS('petersbach')">Voir</button></td></tr>
-    <tr><td>CIS Saverne</td><td><button onclick="showCIS('saverne')">Voir</button></td></tr>
-    <tr><td>CIS Strasbourg Ouest</td><td><button onclick="showCIS('strasbourg')">Voir</button></td></tr>
-    <tr><td>CIS Truchtersheim</td><td><button onclick="showCIS('truchtersheim')">Voir</button></td></tr>
-    <tr><td>CIS Val de Moder</td><td><button onclick="showCIS('moder')">Voir</button></td></tr>
-    <tr><td>CIS Wasselonne</td><td><button onclick="showCIS('wasselonne')">Voir</button></td></tr>
-</table>
-
-<!-- ENIS -->
-<h2>ENIS</h2>
-<table border="1">
-    <tr>
-        <th>ENIS</th>
-        <th>Voir</th>
-    </tr>
-    <tr><td>ENIS</td><td><button onclick="showCIS('enis1')">Voir</button></td></tr>
-</table>
-
-<!-- Zone d'affichage dynamique -->
-<div id="cisInfo" class="cis-box"></div>
-
-<script>
-// Noms propres des centres
-const nomsCIS = {
-    alpilles: "CIS Alpilles-Durance (SDIS 13)",
-    chateaurenard: "CIS Chateaurenard (SDIS 13)",
-    eyguieres: "CIS Eyguières (SDIS 13)",
-    istres: "CIS Istres (SDIS 13)",
-    lambesc: "CIS Lambesc (SDIS 13)",
-    mallemort: "CIS Mallemort (SDIS 13)",
-    salon: "CIS Salon-de-Provence (SDIS 13)",
-    baux: "CIS Vallée des Baux (SDIS 13)",
-
-    bischwiller: "CIS Bischwiller (SDIS 67)",
-    molsheim: "CIS Molsheim (SDIS 67)",
-    petersbach: "CIS Petersbach (SDIS 67)",
-    saverne: "CIS Saverne (SDIS 67)",
-    strasbourg: "CIS Strasbourg Ouest (SDIS 67)",
-    truchtersheim: "CIS Truchtersheim (SDIS 67)",
-    moder: "CIS Val de Moder (SDIS 67)",
-    wasselonne: "CIS Wasselonne (SDIS 67)",
-
-    enis1: "ENIS 1",
-    enis2: "ENIS 2",
-    enis3: "ENIS 3"
-};
-
-// Contenu du JSON (chargé au démarrage)
-let vehicules = {};
-
-fetch("vehicules.json")
-    .then(response => response.json())
-    .then(data => vehicules = data)
-    .catch(err => console.error("Erreur chargement JSON :", err));
-
-function showCIS(cis) {
-    const box = document.getElementById("cisInfo");
-    const nomCentre = nomsCIS[cis] || "Centre inconnu";
-    const liste = vehicules[cis] || [];
-
-    box.style.display = "block";
-
-    let lignes = "";
-
-    if (liste.length === 0) {
-        lignes = `
-            <tr>
-                <td colspan="4" style="padding:15px; text-align:center; color:#ffcc00;">
-                    Aucun véhicule renseigné pour ce centre.
-                </td>
-            </tr>
-        `;
-    } else {
-        lignes = liste.map(v => {
-            const statutClass = v.statut.toLowerCase().includes("reforme")
-                ? "statut-reforme"
-                : "statut-dispo";
-
-            const urlFlux = "http://monpompier.com/flux/vehicules/" + v.id + ".xml";
-
-            return `
-                <tr>
-                    <td>${v.id}</td>
-                    <td>${v.nom}</td>
-                    <td class="${statutClass}">${v.statut}</td>
-                    <td><a class="lien-flux" href="${urlFlux}" target="_blank">Voir flux XML</a></td>
-                </tr>
-            `;
-        }).join("");
-    }
-
-    box.innerHTML = `
-        <h3>${nomCentre}</h3>
-
-        <table border="1" style="width:100%; margin-top:20px;">
-            <tr style="background-color:#d32f2f; color:white;">
-                <th>ID</th>
-                <th>Véhicule</th>
-                <th>Statut</th>
-                <th>Flux XML</th>
-            </tr>
-            ${lignes}
-        </table>
-    `;
-}
-</script>
+<!-- Ton script -->
+<script src="vehicules.js"></script>
 
 </body>
 </html>
