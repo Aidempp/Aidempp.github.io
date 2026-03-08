@@ -1,154 +1,74 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Avis du mois</title>
+<div class="avis-box">
+    <h2>Créer un avis mensuel</h2>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('Fond pompier Aide MPP.png') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav {
-            background-color: #d32f2f;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 36px;
-            color: white;
-            text-shadow: 2px 2px 4px black;
-        }
-
-        .avis-box {
-            width: 70%;
-            margin: 40px auto;
-            background-color: rgba(0,0,0,0.65);
-            padding: 25px;
-            border-radius: 12px;
-            color: white;
-            box-shadow: 0 0 12px black;
-        }
-
-        .avis-box h2 {
-            color: #ffcc00;
-            text-shadow: 2px 2px 4px black;
-            margin-bottom: 20px;
-        }
-
-        .avis-box h3 {
-            margin-top: 25px;
-            color: #ff4444;
-            text-shadow: 2px 2px 4px black;
-        }
-
-        .avis-section {
-            background-color: rgba(255,255,255,0.08);
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-            border-left: 4px solid #ff4444;
-        }
-
-        footer {
-            background-color: #d32f2f;
-            padding: 12px 0;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
-        }
-
-        footer p {
-            margin: 3px 0;
-        }
-    </style>
-</head>
-
-<body>
-
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="mensuel.html">Avis du mois</a>
-        <a href="promotion.html">Promotion</a>
-        <a href="sanction.html">Sanction</a>
-        <a href="Véhicules.html">Véhicules</a>
-    </nav>
-
-    <h1>Avis du mois</h1>
-
-    <div class="avis-box">
-        <h2>Avis Mensuel – Septembre 2023</h2>
-
-        <h3>1 • Identité</h3>
-        <div class="avis-section">
-            <p><strong>Grade :</strong> Adjudant-Chef</p>
-            <p><strong>Prénom :</strong> Jérôme</p>
-        </div>
-
-        <h3>2 • Statistiques</h3>
-        <div class="avis-section">
-            <p><strong>DPA :</strong> 100%</p>
-            <p><strong>CP :</strong> 91%</p>
-            <p><strong>Humeur :</strong> 98%</p>
-            <p><strong>Ensemble du mois :</strong> Très bon mois</p>
-        </div>
-
-        <h3>3 • Comportement & Présence</h3>
-        <div class="avis-section">
-            <p>Présence quotidienne</p>
-            <p>Très bonne communication avec la hiérarchie</p>
-            <p>Très bonne communication avec les joueurs</p>
-            <p>Très bon comportement au sein du CIS</p>
-            <p>Excellent investissement pour sa carrière et le CIS</p>
-        </div>
-
-        <h3>4 • Obligations</h3>
-        <div class="avis-section">
-            <p><strong>Planning débloqué :</strong> Oui, dans les temps</p>
-            <p><strong>EPI (entretien + demande) :</strong> Correct</p>
-            <p><strong>FMA :</strong> À jour</p>
-            <p><strong>Bagage formatif :</strong> Excellent</p>
-            <p><strong>Rappels / Avertissements :</strong> Aucun</p>
-        </div>
-
-        <h3>5 • Signature</h3>
-        <div class="avis-section">
-            <p><strong>Ton grade :</strong> Sergent-Chef</p>
-            <p><strong>Ton pseudo :</strong> Exemple</p>
-            <p><strong>Ta fonction :</strong> Chef de Section</p>
-            <p><strong>Caserne / Groupement :</strong> CIS Alpilles-Durance</p>
-        </div>
+    <h3>1 • Mois</h3>
+    <div class="avis-section">
+        <label>Mois :</label>
+        <select>
+            <option>Janvier 2026</option>
+            <option>Février 2026</option>
+            <option>Mars 2026</option>
+            <option>Avril 2026</option>
+            <option>Mai 2026</option>
+            <option>Juin 2026</option>
+            <option>Juillet 2026</option>
+            <option>Août 2026</option>
+            <option>Septembre 2026</option>
+            <option>Octobre 2026</option>
+            <option>Novembre 2026</option>
+            <option>Décembre 2026</option>
+        </select>
     </div>
 
-    <footer>
-        <p>Créateur : alexdu44</p>
-        <p>Ce site n’a aucun lien avec monpompier.com</p>
-    </footer>
+    <h3>2 • Identité</h3>
+    <div class="avis-section">
+        <label>Grade :</label>
+        <select>
+            <option>Sapeur</option>
+            <option>Caporal</option>
+            <option>Caporal-Chef</option>
+            <option>Sergent</option>
+            <option>Sergent-Chef</option>
+            <option>Adjudant</option>
+            <option>Adjudant-Chef</option>
+            <option>Lieutenant</option>
+        </select>
+        <br><br>
 
-</body>
-</html>
+        <label>Prénom :</label>
+        <input type="text" placeholder="Exemple">
+    </div>
+
+    <h3>3 • Statistiques</h3>
+    <div class="avis-section">
+        <label>DPA :</label>
+        <select>
+            <!-- 0 à 100% -->
+            <script>
+                for (let i = 0; i <= 100; i++) {
+                    document.write(`<option>${i}%</option>`);
+                }
+            </script>
+        </select>
+        <br><br>
+
+        <label>CP :</label>
+        <select>
+            <script>
+                for (let i = 0; i <= 100; i++) {
+                    document.write(`<option>${i}%</option>`);
+                }
+            </script>
+        </select>
+        <br><br>
+
+        <label>Humeur :</label>
+        <select>
+            <script>
+                for (let i = 0; i <= 100; i++) {
+                    document.write(`<option>${i}%</option>`);
+                }
+            </script>
+        </select>
+    </div>
+</div>
