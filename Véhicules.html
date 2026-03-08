@@ -1,67 +1,231 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Véhicules – Arrive bientôt</title>
+<meta charset="UTF-8">
+<title>Véhicules</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('fond-pompier-aide-mpp.png') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: url('Fond pompier Aide MPP.png') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        color: white;
+    }
 
-        nav {
-            background-color: #d32f2f;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-        }
+    h1 {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 36px;
+        text-shadow: 2px 2px 4px black;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-            font-size: 16px;
-        }
+    table {
+        width: 80%;
+        margin: 30px auto;
+        border-collapse: collapse;
+        background-color: rgba(0,0,0,0.6);
+        border-radius: 10px;
+        overflow: hidden;
+    }
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+    th {
+        background-color: #d32f2f;
+        padding: 15px;
+        font-size: 20px;
+        text-shadow: 1px 1px 2px black;
+    }
 
-        h1 {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 40px;
-            color: white;
-            text-shadow: 2px 2px 4px black;
-        }
+    td {
+        padding: 15px;
+        text-align: center;
+    }
 
-        p {
-            text-align: center;
-            color: white;
-            font-size: 22px;
-            margin-top: 20px;
-            text-shadow: 2px 2px 4px black;
-        }
-    </style>
+    button {
+        padding: 10px 20px;
+        background-color: #ff4444;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 0 6px black;
+    }
+
+    button:hover {
+        background-color: #ff2222;
+    }
+
+    .vehicules-box {
+        width: 80%;
+        margin: 20px auto;
+        background-color: rgba(0,0,0,0.6);
+        padding: 20px;
+        border-radius: 10px;
+        display: none;
+    }
+
+    .vehicules-box h2 {
+        color: #ffcc00;
+        text-shadow: 1px 1px 2px black;
+    }
+</style>
+
 </head>
-
 <body>
 
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="mensuel.html">Avis du mois</a>
-        <a href="promotion.html">Promotion</a>
-        <a href="sanction.html">Sanction</a>
-        <a href="vehicules.html">Véhicules</a>
-    </nav>
+<h1>Véhicules par CIS</h1>
 
-    <h1>🚒 Page Véhicules</h1>
-    <p>Cette section arrive bientôt.<br>De nouveaux outils seront disponibles prochainement.</p>
-    
+<table border="1">
+    <tr>
+        <th>Centre d'incendie et de secours</th>
+        <th>Voir les véhicules</th>
+    </tr>
+
+    <tr>
+        <td>CIS Alpilles-Durance</td>
+        <td><button onclick="showVehicules('alpilles')">Voir</button></td>
+    </tr>
+
+    <tr>
+        <td>CIS Chateaurenard</td>
+        <td><button onclick="showVehicules('chateaurenard')">Voir</button></td>
+    </tr>
+
+    <tr>
+        <td>CIS Eyguières</td>
+        <td><button onclick="showVehicules('eyguieres')">Voir</button></td>
+    </tr>
+
+    <tr>
+        <td>CIS Istres</td>
+        <td><button onclick="showVehicules('istres')">Voir</button></td>
+    </tr>
+
+    <tr>
+        <td>CIS Lambesc</td>
+        <td><button onclick="showVehicules('lambesc')">Voir</button></td>
+    </tr>
+
+    <tr>
+        <td>CIS Mallemort</td>
+        <td><button onclick="showVehicules('mallemort')">Voir</button></td>
+    </tr>
+
+    <tr>
+        <td>CIS Salon-de-Provence</td>
+        <td><button onclick="showVehicules('salon')">Voir</button></td>
+    </tr>
+
+    <tr>
+        <td>CIS Vallée des Baux</td>
+        <td><button onclick="showVehicules('baux')">Voir</button></td>
+    </tr>
+
+</table>
+
+<!-- Zone d'affichage dynamique -->
+<div id="vehicules" class="vehicules-box"></div>
+
+<script>
+function showVehicules(cis) {
+
+    const data = {
+        alpilles: {
+            nom: "CIS Alpilles-Durance",
+            liste: [
+                "FPTSR",
+                "CCFS 6000",
+                "VSAV 1",
+                "VSAV 2",
+                "VTU"
+            ]
+        },
+
+        chateaurenard: {
+            nom: "CIS Chateaurenard",
+            liste: [
+                "FPT",
+                "CCF 4000",
+                "VSAV",
+                "VLCG"
+            ]
+        },
+
+        eyguieres: {
+            nom: "CIS Eyguières",
+            liste: [
+                "FPT",
+                "CCF 3000",
+                "VSAV"
+            ]
+        },
+
+        istres: {
+            nom: "CIS Istres",
+            liste: [
+                "FPTSR",
+                "EPA",
+                "VSAV",
+                "VSR"
+            ]
+        },
+
+        lambesc: {
+            nom: "CIS Lambesc",
+            liste: [
+                "FPT",
+                "CCF 4000",
+                "VSAV"
+            ]
+        },
+
+        mallemort: {
+            nom: "CIS Mallemort",
+            liste: [
+                "FPT",
+                "CCF 3000",
+                "VSAV"
+            ]
+        },
+
+        salon: {
+            nom: "CIS Salon-de-Provence",
+            liste: [
+                "FPTSR",
+                "EPA",
+                "VSAV 1",
+                "VSAV 2",
+                "VSR",
+                "VLCG"
+            ]
+        },
+
+        baux: {
+            nom: "CIS Vallée des Baux",
+            liste: [
+                "FPT",
+                "CCF 4000",
+                "VSAV"
+            ]
+        }
+    };
+
+    const box = document.getElementById("vehicules");
+    const cisData = data[cis];
+
+    box.style.display = "block";
+
+    box.innerHTML = `
+        <h2>${cisData.nom}</h2>
+        <ul>
+            ${cisData.liste.map(v => `<li>${v}</li>`).join("")}
+        </ul>
+    `;
+}
+</script>
+
 </body>
 </html>
