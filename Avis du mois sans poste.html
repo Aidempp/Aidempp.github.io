@@ -70,7 +70,7 @@
             border-left: 4px solid #ff4444;
         }
 
-        /* STYLE DES MENUS DÉROULANTS ET INPUTS */
+        /* STYLE DES MENUS ET INPUTS */
         select, input[type="text"] {
             width: 250px;
             padding: 8px;
@@ -126,8 +126,7 @@
         <div class="avis-section">
             <label for="grade"><strong>Grade :</strong></label><br>
             <select id="grade">
-                <option>Sapeur 2ème classe</option>
-                 <option>Sapeur 1ère classe</option>
+                <option>Sapeur</option>
                 <option>Caporal</option>
                 <option>Caporal-Chef</option>
                 <option>Sergent</option>
@@ -135,15 +134,11 @@
                 <option>Adjudant</option>
                 <option>Adjudant-Chef</option>
                 <option>Lieutenant</option>
-                 <option>Capitaine</option>
-                 <option>Commandant</option>
-                 <option>Lieutenant-colonel</option>
-                 <option>Colonel</option>
             </select>
             <br><br>
 
-            <label for="prenom"><strong>Pseudo :</strong></label><br>
-            <input type="text" id="prenom" placeholder="Pseudo">
+            <label for="prenom"><strong>Prénom :</strong></label><br>
+            <input type="text" id="prenom" placeholder="Exemple">
         </div>
 
         <!-- 3 • Statistiques -->
@@ -151,15 +146,27 @@
         <div class="avis-section">
 
             <label for="dpa"><strong>DPA :</strong></label><br>
-            <input type="text" id="Dépense de PA" placeholder="Dépense de PA">
+            <select id="dpa">
+                <option>0%</option><option>10%</option><option>20%</option><option>30%</option><option>40%</option>
+                <option>50%</option><option>60%</option><option>70%</option><option>80%</option><option>90%</option>
+                <option selected>100%</option>
+            </select>
             <br><br>
 
             <label for="cp"><strong>CP :</strong></label><br>
-            <input type="text" id="Condition physique" placeholder="Condition physique">
+            <select id="cp">
+                <option>0%</option><option>10%</option><option>20%</option><option>30%</option><option>40%</option>
+                <option>50%</option><option>60%</option><option>70%</option><option>80%</option><option>90%</option>
+                <option selected>100%</option>
+            </select>
             <br><br>
 
             <label for="humeur"><strong>Humeur :</strong></label><br>
-            <input type="text" id="Humeur" placeholder="Humeur">
+            <select id="humeur">
+                <option>0%</option><option>10%</option><option>20%</option><option>30%</option><option>40%</option>
+                <option>50%</option><option>60%</option><option>70%</option><option>80%</option><option>90%</option>
+                <option selected>100%</option>
+            </select>
         </div>
 
         <!-- 4 • Comportement & Présence -->
@@ -202,6 +209,50 @@
                 <option>Bon</option>
                 <option>Moyen</option>
                 <option>Mauvais</option>
+            </select>
+
+        </div>
+
+        <!-- 5 • Obligations -->
+        <h3>5 • Obligations</h3>
+        <div class="avis-section">
+
+            <label for="planning"><strong>Planning débloqué :</strong></label><br>
+            <select id="planning">
+                <option>Dans les temps</option>
+                <option>En retard</option>
+            </select>
+            <br><br>
+
+            <label for="epi"><strong>EPI (entretien + demande) :</strong></label><br>
+            <select id="epi">
+                <option>Correct</option>
+                <option>Incorrect</option>
+            </select>
+            <br><br>
+
+            <label for="fma"><strong>FMA :</strong></label><br>
+            <select id="fma">
+                <option>À jour</option>
+                <option>Non à jour</option>
+            </select>
+            <br><br>
+
+            <label for="bagage"><strong>Bagage formatif :</strong></label><br>
+            <select id="bagage">
+                <option>Excellent</option>
+                <option>Insuffisant</option>
+            </select>
+            <br><br>
+
+            <label for="rappel"><strong>Rappels / Avertissements :</strong></label><br>
+            <select id="rappel">
+                <option>Aucun</option>
+                <option>Rappel officiel</option>
+                <option>Avertissement niveau 1</option>
+                <option>Avertissement niveau 2</option>
+                <option>Avertissement niveau 3</option>
+                <option>Avertissement niveau 4</option>
             </select>
 
         </div>
