@@ -48,13 +48,22 @@
             text-shadow: 2px 2px 4px black;
         }
 
+        /* --- BANDEAU ROUGE --- */
         footer {
-            margin-top: 60px;
+            background-color: #d32f2f; /* Rouge pompier */
+            padding: 12px 0;
             text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
             color: white;
             font-size: 16px;
-            text-shadow: 2px 2px 4px black;
-            padding-bottom: 20px;
+            font-weight: bold;
+            box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
+        }
+
+        footer p {
+            margin: 3px 0;
         }
     </style>
 </head>
@@ -73,7 +82,8 @@
     <p>Ce site vous permet de générer des avis rapidement.</p>
 
     <footer>
-        • Créateur alexdu44
+        <p>Créateur : alexdu44</p>
+        <p>Ce site n’a aucun lien avec monpompier.com</p>
     </footer>
 
 </body>
