@@ -31,24 +31,26 @@
     }
 
     table {
-        width: 80%;
+        width: 95%;
         margin: 20px auto;
         border-collapse: collapse;
         background-color: rgba(0,0,0,0.6);
         border-radius: 10px;
         overflow: hidden;
+        font-size: 15px;
     }
 
     th {
         background-color: #d32f2f;
-        padding: 15px;
-        font-size: 20px;
+        padding: 10px;
+        font-size: 17px;
         text-shadow: 1px 1px 2px black;
     }
 
     td {
-        padding: 15px;
+        padding: 10px;
         text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
     button {
@@ -68,7 +70,7 @@
     }
 
     .cis-box {
-        width: 80%;
+        width: 95%;
         margin: 20px auto 40px auto;
         background-color: rgba(0,0,0,0.6);
         padding: 20px;
@@ -82,24 +84,21 @@
         margin-top: 0;
     }
 
-    .statut-dispo {
-        color: #00e676;
-        font-weight: bold;
+    /* Couleurs d’alerte */
+    .ok {
+        background: rgba(0, 200, 0, 0.25);
     }
 
-    .statut-reforme {
-        color: #b0bec5;
-        font-weight: bold;
+    .attention {
+        background: rgba(255, 165, 0, 0.25);
     }
 
-    a.lien-flux {
-        color: #64b5f6;
-        text-decoration: none;
-        font-weight: bold;
+    .urgent {
+        background: rgba(255, 0, 0, 0.25);
     }
 
-    a.lien-flux:hover {
-        text-decoration: underline;
+    .critique {
+        background: rgba(150, 0, 255, 0.25);
     }
 </style>
 
@@ -111,10 +110,7 @@
 <!-- SDIS 13 -->
 <h2>SDIS 13</h2>
 <table border="1">
-    <tr>
-        <th>CIS</th>
-        <th>Voir</th>
-    </tr>
+    <tr><th>CIS</th><th>Voir</th></tr>
     <tr><td>CIS Alpilles-Durance</td><td><button onclick="showCIS('alpilles')">Voir</button></td></tr>
     <tr><td>CIS Chateaurenard</td><td><button onclick="showCIS('chateaurenard')">Voir</button></td></tr>
     <tr><td>CIS Eyguières</td><td><button onclick="showCIS('eyguieres')">Voir</button></td></tr>
@@ -128,10 +124,7 @@
 <!-- SDIS 67 -->
 <h2>SDIS 67</h2>
 <table border="1">
-    <tr>
-        <th>CIS</th>
-        <th>Voir</th>
-    </tr>
+    <tr><th>CIS</th><th>Voir</th></tr>
     <tr><td>CIS Bischwiller</td><td><button onclick="showCIS('bischwiller')">Voir</button></td></tr>
     <tr><td>CIS Molsheim</td><td><button onclick="showCIS('molsheim')">Voir</button></td></tr>
     <tr><td>CIS Petersbach</td><td><button onclick="showCIS('petersbach')">Voir</button></td></tr>
@@ -145,11 +138,8 @@
 <!-- ENIS -->
 <h2>ENIS</h2>
 <table border="1">
-    <tr>
-        <th>ENIS</th>
-        <th>Voir</th>
-    </tr>
-    <tr><td>ENIS</td><td><button onclick="showCIS('enis1')">Voir</button></td></tr>
+    <tr><th>ENIS</th><th>Voir</th></tr>
+    <tr><td>ENIS 1</td><td><button onclick="showCIS('enis1')">Voir</button></td></tr>
 </table>
 
 <!-- Zone d'affichage -->
@@ -176,7 +166,7 @@ const nomsCIS = {
     moder: "CIS Val de Moder",
     wasselonne: "CIS Wasselonne",
 
-    enis1: "ENIS 1",
+    enis1: "ENIS 1"
 };
 
 // Chargement du JSON
@@ -199,25 +189,32 @@ function showCIS(cis) {
     if (liste.length === 0) {
         lignes = `
             <tr>
-                <td colspan="4" style="padding:15px; text-align:center; color:#ffcc00;">
+                <td colspan="11" style="padding:15px; text-align:center; color:#ffcc00;">
                     Aucun véhicule renseigné pour ce centre.
                 </td>
             </tr>
         `;
     } else {
         lignes = liste.map(v => {
-            const statutClass = v.statut.toLowerCase().includes("reforme")
-                ? "statut-reforme"
-                : "statut-dispo";
-
-            const urlFlux = "http://monpompier.com/flux/vehicules/" + v.id + ".xml";
+            const classe =
+                v.alerte === "ok" ? "ok" :
+                v.alerte === "attention" ? "attention" :
+                v.alerte === "urgent" ? "urgent" :
+                "critique";
 
             return `
-                <tr>
+                <tr class="${classe}">
                     <td>${v.id}</td>
                     <td>${v.nom}</td>
-                    <td class="${statutClass}">${v.statut}</td>
-                    <td><a class="lien-flux" href="${urlFlux}" target="_blank">Voir flux XML</a></td>
+                    <td>${v.nettoyage || "--"}</td>
+                    <td>${v.usure || "--"} %</td>
+                    <td>${v.carburant || "--"} %</td>
+                    <td>${v.km || "--"}</td>
+                    <td>${v.limite_nettoyage || "--"}</td>
+                    <td>${v.limite_controles || "--"}</td>
+                    <td>${v.limite_antares || "--"}</td>
+                    <td>${v.limite_ct || "--"}</td>
+                    <td>${v.limite_desinfection || "--"}</td>
                 </tr>
             `;
         }).join("");
@@ -229,9 +226,16 @@ function showCIS(cis) {
         <table border="1" style="width:100%; margin-top:20px;">
             <tr style="background-color:#d32f2f; color:white;">
                 <th>ID</th>
-                <th>Véhicule</th>
-                <th>Statut</th>
-                <th>Flux XML</th>
+                <th>Engin</th>
+                <th>Nettoyage</th>
+                <th>Usure</th>
+                <th>Carburant</th>
+                <th>KM restants</th>
+                <th>Date limite nettoyage</th>
+                <th>Date limite contrôles</th>
+                <th>Date limite ANTARES</th>
+                <th>Date limite CT</th>
+                <th>Date limite désinfection</th>
             </tr>
             ${lignes}
         </table>
