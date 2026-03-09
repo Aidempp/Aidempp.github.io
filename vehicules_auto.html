@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Liste automatique des véhicules MPP</title>
+<title>Liste automatique des véhicules</title>
 
 <style>
     body {
@@ -21,116 +21,77 @@
     table {
         width: 100%;
         border-collapse: collapse;
-        background: rgba(0,0,0,0.6);
-        border-radius: 10px;
-        overflow: hidden;
-        font-size: 15px;
+        background: rgba(0,0,0,0.5);
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
     th {
         background: #d32f2f;
-        padding: 10px;
-        font-size: 17px;
-        text-shadow: 1px 1px 2px black;
+        text-align: center;
     }
 
     td {
-        padding: 10px;
         text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
     }
-
-    .ok { background: rgba(0, 200, 0, 0.25); }
-    .attention { background: rgba(255, 165, 0, 0.25); }
-    .urgent { background: rgba(255, 0, 0, 0.25); }
-    .critique { background: rgba(150, 0, 255, 0.25); }
 </style>
 
 </head>
 <body>
 
-<h1>Liste automatique des véhicules MPP</h1>
+<h1>Liste automatique des véhicules</h1>
 
 <table>
     <thead>
         <tr>
             <th>ID</th>
-            <th>Engin</th>
-            <th>Statut</th>
-            <th>Dernière mise à jour</th>
-            <th>Flux XML</th>
+            <th>Engin + CIS</th>
+            <th>Description</th>
         </tr>
     </thead>
     <tbody id="liste"></tbody>
 </table>
 
 <script>
-async function chargerVehicule(id) {
-    const url = `https://monpompier.com/flux/vehicules/${id}.xml`;
+// On récupère les véhicules enregistrés dans la gestion
+let vehicules = JSON.parse(localStorage.getItem("vehicules")) || [];
 
-    try {
-        const response = await fetch(url);
-        if (!response.ok) return null;
+// Exemple de descriptions automatiques selon le type d'engin
+function descriptionAutomatique(numero) {
+    numero = numero.toUpperCase();
 
-        const xmlText = await response.text();
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(xmlText, "text/xml");
+    if (numero.includes("VSAV")) return "Véhicule de Secours et d’Assistance aux Victimes";
+    if (numero.includes("FPT")) return "Fourgon Pompe Tonne";
+    if (numero.includes("VLC")) return "Véhicule Léger de Commandement";
+    if (numero.includes("CCF")) return "Camion Citerne Feux de Forêts";
+    if (numero.includes("EPA")) return "Échelle Pivotante Automatique";
 
-        const channel = xml.querySelector("channel");
-        if (!channel) return null;
-
-        const nom = channel.querySelector("title")?.textContent.trim() || "Inconnu";
-
-        const items = [...xml.querySelectorAll("item")];
-        let statut = "Inconnu";
-        let maj = "--";
-
-        for (const item of items) {
-            const title = item.querySelector("title")?.textContent.trim() || "";
-            const desc = item.querySelector("description")?.textContent.trim() || "";
-
-            if (title === "Changement d'état" && desc.includes("est :")) {
-                statut = desc.split("est :")[1].trim();
-                maj = item.querySelector("pubDate")?.textContent.trim() || "--";
-            }
-        }
-
-        return { id, nom, statut, maj };
-
-    } catch {
-        return null;
-    }
+    return "Aucune description disponible";
 }
 
-async function chargerTous() {
+function afficher() {
     const tbody = document.getElementById("liste");
+    tbody.innerHTML = "";
 
-    for (let id = 1; id <= 2500; id++) {
-        const v = await chargerVehicule(id);
-        if (!v) continue;
+    vehicules.forEach(v => {
+        const desc = descriptionAutomatique(v.numero);
 
-        const classe =
-            v.statut.includes("Disponible") ? "ok" :
-            v.statut.includes("Maintenance") ? "attention" :
-            v.statut.includes("Indisponible") ? "urgent" :
-            "critique";
-
-        const tr = document.createElement("tr");
-        tr.className = classe;
-
-        tr.innerHTML = `
-            <td>${v.id}</td>
-            <td>${v.nom}</td>
-            <td>${v.statut}</td>
-            <td>${v.maj}</td>
-            <td><a href="https://monpompier.com/flux/vehicules/${v.id}.xml" target="_blank" style="color:#64b5f6;">Voir</a></td>
+        tbody.innerHTML += `
+            <tr>
+                <td>${v.id}</td>
+                <td>${v.numero} ${v.cis}</td>
+                <td>${desc}</td>
+            </tr>
         `;
-
-        tbody.appendChild(tr);
-    }
+    });
 }
 
-chargerTous();
+afficher();
 </script>
 
 </body>
